@@ -1,25 +1,20 @@
-import logo from './logo.svg';
-import './App.css';
+import { Container, Typography } from "@mui/material";
+import { LoanProvider } from "./context/LoanContext";
+import LoanForm from "./components/LoanForm";
+import ResultDisplay from './components/Result'
+import CurrencyConverter from "./components/CurrencyConverter";
 
-function App() {
+const App = () => {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <LoanProvider>
+      <Container maxWidth="sm" sx={{ mt: 5 }}>
+        <Typography variant="h4" gutterBottom align="center">Loan Calculator</Typography>
+        <LoanForm />
+        <CurrencyConverter />
+        <ResultDisplay />
+      </Container>
+    </LoanProvider>
   );
-}
+};
 
 export default App;
